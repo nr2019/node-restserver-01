@@ -5,7 +5,7 @@ const app = express();
 const bodyParser = require('body-parser');
 
 
-// Cuando hay un app.use es un middleware
+// Cuando hay un app.use es un middleware *
 app.use(bodyParser.urlencoded({ extended: false }))
     // parse application/json
 app.use(bodyParser.json())
