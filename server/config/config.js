@@ -12,7 +12,7 @@ en este caso, si viene vacía es llenada con dev*/
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
 //************************************************
-//  Base de datos
+//  Base de datos *
 //************************************************
 
 let urlDB;
