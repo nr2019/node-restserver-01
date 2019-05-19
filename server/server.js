@@ -1,5 +1,6 @@
 require('./config/config');
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
 const bodyParser = require('body-parser');
 
@@ -8,43 +9,17 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }))
     // parse application/json
 app.use(bodyParser.json())
+app.use(require('./routes/usuario'));
 
 
-app.get('/usuario', function(req, res) {
-    //res.send('Hola Mundo');
-    res.json('Get Usuario');
-});
+//mongoose.connect('mongodb://localhost:27017/cafe', {useNewUrlParser: true});
+//mongoose.connect('mongodb://localhost:27017/cafe', { useNewUrlParser: true, useCreateIndex: true },
+mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: true },
+    (err, res) => {
 
-app.post('/usuario', function(req, res) {
-    //res.send('Hola Mundo');
-    let body = req.body;
-    if (body.nombre === undefined) {
-        //bad request
-        res.status(400).json({
-            ok: false,
-            mensaje: 'El nombre es necesario'
-        });
-    } else {
-        res.json({
-            persona: body
-        });
-    }
-
-});
-
-app.put('/usuario/:id', function(req, res) {
-    //res.send('Hola Mundo');
-    let id = req.params.id;
-    res.json({
-        id
+        if (err) throw err;
+        console.log('Base de datos ONLINE');
     });
-});
-
-app.delete('/usuario', function(req, res) {
-    //res.send('Hola Mundo');
-    res.json('Delete Usuario');
-});
-
 app.listen(process.env.PORT, () => {
     console.log('Escuchando puerto: ', process.env.PORT);
 });
