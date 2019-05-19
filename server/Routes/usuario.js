@@ -1,6 +1,6 @@
-const express = require('express');
-const bcrypt = require('bcrypt');
-const _ = require('underscore');
+const express = require('./node_modules/express');
+const bcrypt = require('./node_modules/bcrypt');
+const _ = require('./node_modules/underscore');
 const Usuario = require('../models/usuario');
 const app = express();
 
