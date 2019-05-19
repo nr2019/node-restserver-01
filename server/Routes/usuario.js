@@ -6,7 +6,7 @@ const app = express();
 
 app.get('/usuario', function(req, res) {
 
-    // si me envían el parámetro opcional "desde", uso ese, sino cero.
+    // si me envían el parámetro opcional "desde", uso ese, sino cero. *
     // hay que validar que venga un número
     let desde = req.query.desde || 0;
     desde = Number(desde);
