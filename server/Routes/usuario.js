@@ -26,7 +26,7 @@ app.get('/usuario', function(req, res) {
     nombre email van a ser los campos que voy a leer*/
     Usuario.find({ estado: true }, 'nombre email role estado google img')
         .skip(desde) // salta n registros
-        .limit(limite) //me devuelve del 5 registroS *
+        .limit(limite) //me devuelve del 5 registroS 
         .exec((err, usuarios) => {
             if (err) {
                 return res.status(400).json({

@@ -18,7 +18,7 @@ let usuarioSchema = new Schema({
     },
     email: {
         type: String,
-        // no podrá existir 2 correos iguales *
+        // no podrá existir 2 correos iguales 
         unique: true,
         required: [true, 'El correo es necesario.']
     },
