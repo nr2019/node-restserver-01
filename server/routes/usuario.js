@@ -113,7 +113,7 @@ app.delete('/usuario/:id', function(req, res) {
     let cambiaEstado = {
         estado: false
     };
-
+    // el new:true es para que me devuelva el resultado actualizado
     Usuario.findByIdAndUpdate(id, cambiaEstado, { new: true }, (err, usuarioBorrado) => {
 
         if (err) {
